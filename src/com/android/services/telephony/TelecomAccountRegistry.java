@@ -732,6 +732,9 @@ final class TelecomAccountRegistry {
                                     + ex);
                         }
                     }
+	            if (provisionStatus == INVALID_STATE) {
+                        provisionStatus = PROVISIONED;
+        	    }
 
                     Log.d(this, "Phone with subscription id: " + subscriptionId +
                             " slotId: " + slotId + " provisionStatus: " + provisionStatus);

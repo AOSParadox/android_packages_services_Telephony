@@ -614,7 +614,7 @@ public class TelephonyConnectionService extends ConnectionService {
             } catch (NullPointerException ex) {
                 Log.e(this, ex, "Exception : " + ex);
             }
-            return PhoneFactory.getDefaultPhone();
+            return getFirstPhoneForEmergencyCall();
         }
 
         int subId = PhoneUtils.getSubIdForPhoneAccountHandle(accountHandle);
@@ -656,8 +656,8 @@ public class TelephonyConnectionService extends ConnectionService {
         }
 
         if (selectPhone == null) {
-            Log.d(this, "pickBestPhoneForEmergencyCall, return default phone");
-            selectPhone = PhoneFactory.getDefaultPhone();
+            Log.d(this, "pickBestPhoneForEmergencyCall, return phone 0");
+            selectPhone = PhoneFactory.getPhone(0);
         }
 
         return selectPhone;
